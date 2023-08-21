@@ -8,7 +8,9 @@ import pymysql
 class Goal(models.Model):
     start = models.DateField()
     stop = models.DateField()
-    goal = models.CharField(max_length=50) 
+    hour = models.CharField(max_length=50, default=0) 
+    minute = models.CharField(max_length=50, default=0) 
+    goal = models.CharField(max_length=50, default=0) 
     user = models.ForeignKey(User, on_delete=models.CASCADE) 
     
     class Meta:

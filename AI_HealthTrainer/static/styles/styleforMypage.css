@@ -12,9 +12,7 @@ ul, li {
 input {
 	border: none;
 }
-body {
-  width: 144rem;
-}
+
 
 .my-page-container {
   box-sizing: border-box;
@@ -32,6 +30,7 @@ body {
   display: flex;
   align-items: flex-end;
   flex-shrink: 0;
+  gap: 10px;
 }
 .header-section .username-text {
   margin-right: 0.3rem;
@@ -46,21 +45,20 @@ body {
 }
 .header-section .start-button {
   margin-bottom: 0.3rem;
-  width: 22rem;
-  height: 5.4rem;
+  padding: 12px 50px;
   font-size: 2.5rem;
   font-weight: 700;
-  line-height: 1.2175;
   letter-spacing: 0.075rem;
   color: #ffffff;
-  font-family: Montserrat, 'Source Sans Pro';
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: "Montserrat", 'sans-serif';
   background-color: #f04823;
   border-radius: 3rem;
-  flex-shrink: 0;
+  border: none;
+}
+
+.header-section .start-button:hover {
+  background-color: #343333;
+  cursor: pointer;
 }
 .goal-section {
   margin-left: 1.7rem;
@@ -87,6 +85,7 @@ body {
   top: 0;
   background-color: #6d6d6d;
   border-radius: 3rem;
+  
 }
 .goal-section .goal-label  {
   width: 14.9rem;
@@ -120,15 +119,26 @@ body {
   background-color: #748afb;
 }
 .goal-section .set-goal-indicator  {
-  width: 10.6rem;
-  height: 3.4rem;
   position: absolute;
   left: 41rem;
   top: 2.8rem;
+  padding: 12px 50px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.075rem;
+  color: #ffffff;
+  font-family: "Montserrat", 'sans-serif';
   background-color: #f04823;
   border-radius: 3rem;
+  border: none;
 }
-.goal-section .set-goal-text {
+
+.goal-section .set-goal-indicator:hover {
+  background-color: #343333;
+  cursor: pointer;
+}
+
+/* .goal-section .set-goal-text {
   width: 5.5rem;
   height: 1.5rem;
   position: absolute;
@@ -141,7 +151,7 @@ body {
   color: #ffffff;
   font-family: Montserrat, 'Source Sans Pro';
   white-space: nowrap;
-}
+} */
 
 .goal-section .goal-time  {
   width: 17.3rem;

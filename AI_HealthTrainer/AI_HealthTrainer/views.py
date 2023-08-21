@@ -68,8 +68,8 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            print("login Berhasil")
-            # return redirect('signup')  # Ganti 'home' dengan nama URL yang sesuai
+            # print("login Berhasil")
+            return redirect('home')  # Ganti 'home' dengan nama URL yang sesuai
         else:
             error_message = "Invalid email or password."
             return render(request, 'Structures/login.html', {'error_message': error_message})
@@ -90,7 +90,14 @@ def signup(request):
 
     return render(request, 'Structures/signup.html', {'form': form})
 
+def home(request):
+    return render(request, "Structures/mypage.html")
 
+def goal(request):
+    return render(request, "Structures/goal.html")
+
+def exercise(request):
+    return render(request, "Structures/exercise.html")
 
 # def index(request):
 #     return render(request, 'index.html')
