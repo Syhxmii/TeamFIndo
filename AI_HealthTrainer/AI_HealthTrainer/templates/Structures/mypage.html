@@ -27,7 +27,8 @@
             UserName
             <br />
           </p>
-          <input type="button" class="start-button" value="START" />
+          <!-- <input type="button" class="start-button" value="START" /> -->
+          <button class="start-button">START</button>
         </div>
         <div class="goal-section">
           <img class="profile-img" src="../assets/rectangle-10.png" />
@@ -35,14 +36,16 @@
           <p class="goal-label">GOAL</p>
           <div class="progress-bg"></div>
           <div class="progress-bar"></div>
-          <input
+          <!-- <input
             type="button"
             class="set-goal-indicator"
             style="width: 22rem; height: 5.4rem"
           />
           <p class="set-goal-text" style="font-size: 3rem; left: 45rem">
             Set Goal
-          </p>
+          </p> -->
+          <button id="setBtnGoal" type="button" class="set-goal-indicator">SET GOAL</button>
+          
           <p class="goal-time" id="goal-time-num">(100</p>
           <p class="goal-time" id="goal-time-unit">mins)</p>
           <p class="percentage-text" id="percentage-num">10</p>

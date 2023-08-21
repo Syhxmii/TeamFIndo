@@ -32,10 +32,7 @@ document.getElementsByClassName("start-button")[0].addEventListener("click", fun
     window.location.href = "/home/exercise/";
 });
 
-document.getElementsByClassName("set-goal-indicator")[0].addEventListener("click", function() {
+document.getElementById("setBtnGoal").addEventListener("click", function() {
     window.location.href = "/home/goal/";
 });
 
-document.getElementsByClassName("set-goal-text")[0].addEventListener("click", function() {
-    window.location.href = "/home/goal/";
-});
