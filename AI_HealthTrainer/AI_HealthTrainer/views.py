@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from django.http import StreamingHttpResponse, JsonResponse
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.shortcuts import render, redirect
 
 from AI_HealthTrainer import health_trainer
 from datetime import datetime, timedelta
@@ -60,11 +63,24 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect('mypage')  # Ganti 'home' dengan nama URL halaman utama Anda
+            # Log the user in
+            login(request, user)  # Hanya satu argumen, yaitu objek request
+            return redirect('index') # Redirect to the homepage or wherever you want
+        else:
+            print("Form is not valid", form.errors)
     else:
         form = UserCreationForm()
+
+    # Access current authenticated user's username
+    if request.user.is_authenticated:
+        print("Current user:", request.user.username)
+    else:
+        print("No user is currently logged in")
+
     return render(request, 'Structures/signup.html', {'form': form})
+
+
+    # return render(request, 'Structures/signup.html')
     # return render(request, "Structures/signup.html")
 
 

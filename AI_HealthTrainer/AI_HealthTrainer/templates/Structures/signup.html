@@ -8,13 +8,13 @@
 
     <!-- STYLE -->
     <!-- <link rel="stylesheet" href="../../../static/styles/signup.css" /> -->
-    <link rel="stylesheet" href="{% static 'styles/signup.css' %}">
-    
+    <link rel="stylesheet" href="{% static 'styles/signup.css' %}" />
 
     <!-- ICON -->
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,46 +29,91 @@
   <body>
     <div class="coba">
       <div class="container">
-        <h2>
-          <span>Create</span> <br />An Account</h2>
+        <h2><span>Create</span> <br />An Account</h2>
         <hr />
         <div class="box-input">
-          <form method="post" action="{% url 'signup' %}">
+          <form method="post" action="{% url 'signup' %}" class="signup-form">
             {% csrf_token %}
             <div class="input-email">
-              <label for="email">Email Address</label>
-              <input type="email" name="email" id="email" />
+              <label for="email" class="custom-label">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="custom-input"
+              />
             </div>
             <div class="input-password">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" />
-              <span id="iconClick"><i id="icon" class="material-icons">visibility_off</i></span>
+              <label for="password" class="custom-label">Password</label>
+              <input
+                type="password"
+                name="password1"
+                id="password1"
+                class="custom-input"
+              />
+              <span id="iconClick"
+                ><i id="icon" class="material-icons">visibility_off</i></span
+              >
             </div>
             <div class="input-password">
-              <label for="password">Check Password</label>
-              <input type="password" name="checkpassword" id="checkpassword" />
-              <span id="iconClick"><i id="iconCheck" class="material-icons">visibility_off</i></span>
+              <label for="checkpassword" class="custom-label"
+                >Check Password</label
+              >
+              <input
+                type="password"
+                name="password2"
+                id="password2"
+                class="custom-input"
+              />
+              <span id="iconClick"
+                ><i id="iconCheck" class="material-icons"
+                  >visibility_off</i
+                ></span
+              >
             </div>
             <div class="input-username">
-              <label for="username">Username</label>
-              <input type="username" name="username" id="username" />
+              <label for="username" class="custom-label">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                class="custom-input"
+              />
             </div>
-          
-            <button class="btnLogin" type="submit">Sign Up</button>
-            <p>Already have an Account ? <span><a href="{% url 'login' %}">LogIn</a></span> </p>
+
+            <button
+              class="btnLogin"
+              type="submit"
+              style="
+                margin-top: 50px;
+                width: 130px;
+                border: none;
+                padding: 10px 30px;
+                background-color: #f04823;
+                color: #ffff;
+                border-radius: 25px;
+                font-size: 1rem;
+                font-weight: 900;
+              "
+            >
+              Sign Up
+            </button>
+            <p>
+              Already have an Account ?
+              <span
+                ><a href="{% url 'login' %}" style="color: white"
+                  >LogIn</a
+                ></span
+              >
+            </p>
           </form>
-          
         </div>
       </div>
     </div>
     <div class="image-container">
-        <img src="../../../static/assets/logoteam.png" alt="logo">
-        <!-- <div class="img">
-            <img src="./img/logoteam.png" alt="logo">
-        </div> -->
+      <img src="../../../static/assets/logoteam.png" alt="logo" />
     </div>
-    
+
     <script src="{% static 'javascripts/signup.js' %}"></script>
-    <!-- <script src="./js/signup.js"></script> -->
   </body>
 </html>
