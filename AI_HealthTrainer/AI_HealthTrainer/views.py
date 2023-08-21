@@ -49,6 +49,24 @@ def completion(request):
     return render(request, "Structures/camera.html")
 
 
+def homepage(request):
+    return render(request, "Structures/homepage.html")
 
-def index(request):
-    return render(request, 'index.html')
+def login(request):
+    return render(request, "Structures/login.html")
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('mypage')  # Ganti 'home' dengan nama URL halaman utama Anda
+    else:
+        form = UserCreationForm()
+    return render(request, 'Structures/signup.html', {'form': form})
+    # return render(request, "Structures/signup.html")
+
+
+# def index(request):
+#     return render(request, 'index.html')
