@@ -156,6 +156,12 @@ p {
     margin-top: 20px
 }
 
+a {
+    color: #f04823;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 .btnLogin {
     margin-top: 50px;
     width: 130px;

@@ -23,7 +23,7 @@ from AI_HealthTrainer import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', views.homepage, name='homepage'),
-    path('login/', views.login, name='login'),
+    path('login/', views.user_login, name='login'),
     path('signup/', views.signup, name='signup'),
     path('time/', views.set_time, name='set_time'),
     path('camera/', views.camera, name='camera'),

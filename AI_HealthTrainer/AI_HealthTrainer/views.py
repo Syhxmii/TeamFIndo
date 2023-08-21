@@ -4,6 +4,9 @@ from django.http import StreamingHttpResponse, JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
+from .forms import SignUpForm
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
 
 from AI_HealthTrainer import health_trainer
 from datetime import datetime, timedelta
@@ -55,33 +58,38 @@ def completion(request):
 def homepage(request):
     return render(request, "Structures/homepage.html")
 
-def login(request):
-    return render(request, "Structures/login.html")
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST['username']  # Menggunakan username field sebagai email
+        password = request.POST['password']
+        print(username)
+        
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            print("login Berhasil")
+            # return redirect('signup')  # Ganti 'home' dengan nama URL yang sesuai
+        else:
+            error_message = "Invalid email or password."
+            return render(request, 'Structures/login.html', {'error_message': error_message})
+
+    return render(request, 'Structures/login.html')
 
 def signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # Log the user in
-            login(request, user)  # Hanya satu argumen, yaitu objek request
-            return redirect('index') # Redirect to the homepage or wherever you want
+            login(request, user)
+            return redirect('login')
         else:
             print("Form is not valid", form.errors)
     else:
-        form = UserCreationForm()
-
-    # Access current authenticated user's username
-    if request.user.is_authenticated:
-        print("Current user:", request.user.username)
-    else:
-        print("No user is currently logged in")
+        form = SignUpForm()
 
     return render(request, 'Structures/signup.html', {'form': form})
 
-
-    # return render(request, 'Structures/signup.html')
-    # return render(request, "Structures/signup.html")
 
 
 # def index(request):
