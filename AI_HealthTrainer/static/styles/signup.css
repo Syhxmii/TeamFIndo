@@ -45,20 +45,20 @@
       padding: 0 120px 0 20px;
   }
   
-  .container > .box-input >  .input-email {
+  .container > .box-input > form >  .input-email {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
   }
   
-  .container  >.box-input >  .input-password {
+  .container > .box-input > form >  .input-password {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
     position: relative;
   }
   
-  .container > .box-input >  .input-password > span {
+  .container > .box-input > form >  .input-password > span {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -67,19 +67,19 @@
     cursor: pointer;
   }
 
-  .container > .box-input >  .input-username {
+  .container > .box-input > form >  .input-username {
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
   }
   
-  .container > .box-input > div > label {
+  .container > .box-input > form > div > label {
     font-size: 1.2rem;
     color: #ffff;
     font-weight: 600;
   }
   
-  .container > .box-input > div > input {
+  .container > .box-input > form > div > input {
     border: none;
     border-bottom: 1px solid #ffff;
     outline: none;
@@ -101,18 +101,18 @@
       font-weight: 900;
   }
   
-  .container > .box-input > p {
+  .container > .box-input > form > p {
       margin-top: 20px;
       color: #9B9B9B;
   }
   
-  .container > .box-input > p > span > a {
+  .container > .box-input > form > p > span > a {
       color: #ffff;
       font-weight: bold;
       text-decoration: none;
   }
   
-  .container > .box-input > p > span > a:hover {
+  .container > .box-input > form > p > span > a:hover {
       text-decoration: underline;
   }
   

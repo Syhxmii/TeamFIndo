@@ -28,14 +28,18 @@ const progressBg = document.getElementsByClassName("progress-bg")[0];
 const maxWidth = parseFloat(window.getComputedStyle(progressBg).width); 
 progressBar.style.width = (maxWidth * doneRatio / 100) + "px"; 
 
+
+
 document.getElementsByClassName("start-button")[0].addEventListener("click", function() {
-    window.location.href = "././time.html";
+    // window.location.href = "././time.html";
+    window.location.href = "/home/exercise";
+
 });
 
 document.getElementsByClassName("set-goal-indicator")[0].addEventListener("click", function() {
-    window.location.href = "././goal.html";
+    window.location.href = "/home/goal";
 });
 
 document.getElementsByClassName("set-goal-text")[0].addEventListener("click", function() {
-    window.location.href = "././goal.html";
+    window.location.href = "/home/goal";
 });

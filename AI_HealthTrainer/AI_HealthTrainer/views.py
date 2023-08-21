@@ -2,6 +2,10 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_protect
 from django.http import StreamingHttpResponse, JsonResponse
 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.shortcuts import render, redirect
+
 from AI_HealthTrainer import health_trainer
 from datetime import datetime, timedelta
 
@@ -55,17 +59,29 @@ def homepage(request):
 def login(request):
     return render(request, "Structures/login.html")
 
+def home(request):
+    return render(request, "Structures/mypage.html")
+
+def exercise(request):
+    return render(request, "Structures/exercise.html")
+
+def time(request):
+    return render(request, "Structures/time.html")
+
+def goal(request):
+    return render(request, "Structures/goal.html")
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('mypage')  # Ganti 'home' dengan nama URL halaman utama Anda
+            return redirect('login') 
     else:
         form = UserCreationForm()
     return render(request, 'Structures/signup.html', {'form': form})
-    # return render(request, "Structures/signup.html")
+
 
 
 # def index(request):

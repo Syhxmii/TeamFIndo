@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,10 +6,12 @@
   <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
-  <title>My Page</title>
+  <title>Home | AI Health Trainer</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A700"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat%3A700"/>
-  <link rel="stylesheet" href="../styles/styleforMypage.css"/>
+  <!-- <link rel="stylesheet" href="../styles/styleforMypage.css"/> -->
+  <link rel="stylesheet" href="{% static 'styles/styleformypage.css' %}">
+
 </head>
 <body>
 <div class="my-page-container">
@@ -46,5 +49,7 @@
     <p class="total-hours-text" id="total-hour-unit">mins</p>
   </div>
 </div>
-<script src="../javascripts/indexforMypage.js"></script>
+
+<script src="{% static 'javascripts/indexforMypage.js' %}"></script>
+<!-- <script src="../javascripts/indexforMypage.js"></script> -->
 </body>
