@@ -58,6 +58,16 @@ def homepage(request):
 def login(request):
     return render(request, "Structures/login.html")
 
+def home(request):
+    return render(request, "Structures/mypage.html")
+
+def goal(request):
+    return render(request, "Structures/goal.html")
+
+def exercise(request):
+    return render(request, "Structures/exercise.html")
+
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
