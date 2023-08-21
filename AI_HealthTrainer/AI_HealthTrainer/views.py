@@ -5,8 +5,9 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.shortcuts import render, redirect
 from .forms import SignUpForm
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from AI_HealthTrainer.models import Goal
 
 from AI_HealthTrainer import health_trainer
 from datetime import datetime, timedelta
@@ -91,9 +92,21 @@ def signup(request):
     return render(request, 'Structures/signup.html', {'form': form})
 
 def home(request):
-    return render(request, "Structures/mypage.html")
+    user = request.user
+    return render(request, "Structures/mypage.html", {'user': user})
 
-def goal(request):
+def user_goal(request):
+    if request.method == 'POST':
+        user = request.user.id
+        start_date = request.POST['start-date']  # Menggunakan username field sebagai email
+        end_date = request.POST['end-date']
+        minutes = request.POST['minutes']
+        hours = int(request.POST['hours'])  # Mengambil input dari POST dan mengonversi menjadi integer
+        # id = user.id
+        count_duration = hours * 60
+        goal = Goal(start=start_date, stop=end_date, goal= count_duration, user_id = user, hour = hours, minute= minutes)
+        goal.save()
+        return redirect('exercise')
     return render(request, "Structures/goal.html")
 
 def exercise(request):

@@ -32,7 +32,7 @@ urlpatterns = [
     path('completion/', views.completion, name='completion'),
     path('home/', views.home, name='home'),
     path('home/exercise/', views.exercise, name='exercise'),
-    path('home/goal/', views.goal, name='goal'),
+    path('home/goal/', views.user_goal, name='goal'),
     path('home/exercise/time/', views.set_time, name='set_time'),
     # path('exercise/', views.exercise, name='exercise'),
 ]

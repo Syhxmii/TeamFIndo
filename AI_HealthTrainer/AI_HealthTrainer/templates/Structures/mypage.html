@@ -16,7 +16,6 @@
       href="https://fonts.googleapis.com/css?family=Montserrat%3A700"
     />
     <link rel="stylesheet" href="{% static 'styles/styleforMypage.css' %}" />
-    
   </head>
   <body>
     <form action="{% url 'exercise' %}" method="post">
@@ -24,7 +23,7 @@
       <div class="my-page-container">
         <div class="header-section">
           <p class="username-text">
-            UserName
+            {{ user.username }}
             <br />
           </p>
           <!-- <input type="button" class="start-button" value="START" /> -->
@@ -44,8 +43,15 @@
           <p class="set-goal-text" style="font-size: 3rem; left: 45rem">
             Set Goal
           </p> -->
-          <button id="setBtnGoal" type="button" class="set-goal-indicator">SET GOAL</button>
-          
+          <a
+            id="setBtnGoal"
+            type="button"
+            href="{% url 'goal' %}"
+            class="set-goal-indicator"
+          >
+            SET GOAL
+          </a>
+
           <p class="goal-time" id="goal-time-num">(100</p>
           <p class="goal-time" id="goal-time-unit">mins)</p>
           <p class="percentage-text" id="percentage-num">10</p>
